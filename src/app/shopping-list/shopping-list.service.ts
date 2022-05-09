@@ -9,12 +9,17 @@ export class ShoppingListService {
     new Ingredient('Red Chilli Pepper', 55),
   ];
 
-  getIngredients(){
+  getIngredients() {
     return this.ingredients.slice();
   }
 
-  addIngredient(ingredient: Ingredient){
+  addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
+    this.ingredieentsChanged.emit(this.ingredients.slice());
+  }
+
+  addIngredients(ingredients: Ingredient[]) {
+    this.ingredients.push(...ingredients);
     this.ingredieentsChanged.emit(this.ingredients.slice());
   }
 }
