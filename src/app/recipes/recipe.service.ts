@@ -9,9 +9,6 @@ import { Recipe } from "./recipe.model";
 })
 export class RecipeService {
 
-  /**
-   *
-   */
   constructor(private slService: ShoppingListService) {
 
   }
@@ -37,6 +34,10 @@ export class RecipeService {
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipe(index: number) {
+    return this.recipes[index]
   }
 
   addIngredientToShoppingList(ingredients: Ingredient[]) {
